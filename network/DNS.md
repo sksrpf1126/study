@@ -34,7 +34,8 @@
     <p align = "center">
     <img src="https://user-images.githubusercontent.com/62879192/185778873-c2984f8f-13a8-47c8-b14e-6e109d3eecda.png" height = 250px>
 
-  - Root DNS Server는 위와 같이 트리구조로 이루어져 있으며, 자식 노드들(.com, .net, .org 등등)을 TLD DNS Server(최상위 도메인 서버)라 한다.  
+  - 도메인 명은 위와 같이 트리구조로 이루어져 있으며, 자식 노드들(.com, .net, .org 등등)을 top-level 도메인이라 한다. 그 자식은 Second-level, 그 자식은 Sub...
+
     모든 DNS 서버는 Root DNS Server 주소를 알고 있으며, 자신이 모르는 IP주소는 Root DNS Server에 요청을 하고, Root DNS Sever는 Top-level 도메인 명을 통해 자식의 TLD DNS Server의 주소를 반환해준다.  
     "www.naver.com", "www.google.com"과 같은 주소는 .com을 관리하는 TLD DNS Server의 IP주소를 반환
 
