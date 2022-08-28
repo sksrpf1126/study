@@ -7,4 +7,6 @@
 - [TCP와 UDP](https://github.com/sksrpf1126/study/blob/main/network/TCP%EC%99%80%20UDP.md)
 - [IP주소와 MAC주소](https://github.com/sksrpf1126/study/blob/main/network/IP%EC%A3%BC%EC%86%8C%EC%99%80%20MAC%EC%A3%BC%EC%86%8C.md)
 - [ARP와 Routing](https://github.com/sksrpf1126/study/blob/main/network/ARP%EC%99%80%20Routing.md)
-- [DNS에 대하여](https://github.com/sksrpf1126/study/blob/main/network/DNS.md)
+- [DNS에 대하여](https://github.com/sksrpf1126/study/blob/main/network/DNS.md)  
+- [HTTP 버전](https://github.com/sksrpf1126/study/blob/main/network/http%20%EB%B2%84%EC%A0%84.md)  
+- [HTTP와 HTTPS](https://github.com/sksrpf1126/study/blob/main/network/HTTP%EC%99%80%20HTTPS.md)  
