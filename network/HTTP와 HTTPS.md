@@ -58,7 +58,7 @@
 - ## **_HTTPS 동작 방식_**
 
   </br>
-    <p align = "center" style = "background-color : white"><img src="https://user-images.githubusercontent.com/62879192/187064533-78006d38-5157-44c2-87fd-72f3679b1228.png"></p>
+    <p align = "center" style = "background-color:white"><img src="https://user-images.githubusercontent.com/62879192/187064533-78006d38-5157-44c2-87fd-72f3679b1228.png" style = "background-color:white"></p>
     출처 : https://velog.io/@moonyoung/HTTPS의-원리
 
     </br>
