@@ -10,3 +10,4 @@
 - [DNS에 대하여](https://github.com/sksrpf1126/study/blob/main/network/DNS.md)  
 - [HTTP 버전](https://github.com/sksrpf1126/study/blob/main/network/http%20%EB%B2%84%EC%A0%84.md)  
 - [HTTP와 HTTPS](https://github.com/sksrpf1126/study/blob/main/network/HTTP%EC%99%80%20HTTPS.md)  
+- [URL을 입력하면 일어나는 일](https://github.com/sksrpf1126/study/blob/main/network/URL%EC%9D%84%20%EC%9E%85%EB%A0%A5%ED%95%98%EB%A9%B4%20%EC%9D%BC%EC%96%B4%EB%82%98%EB%8A%94%20%EC%9D%BC.md)  
