@@ -14,4 +14,5 @@
 
 # ***JAVA***
 - [JVM이란](https://github.com/sksrpf1126/study/blob/main/java/JVM.md)  
+- [Call By Value VS Call By Reference](https://github.com/sksrpf1126/study/blob/main/java/Call%20By%20Value%20VS%20Call%20By%20Reference.md)  
 
