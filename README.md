@@ -13,6 +13,7 @@
 - [URL을 입력하면 일어나는 일](https://github.com/sksrpf1126/study/blob/main/network/URL%EC%9D%84%20%EC%9E%85%EB%A0%A5%ED%95%98%EB%A9%B4%20%EC%9D%BC%EC%96%B4%EB%82%98%EB%8A%94%20%EC%9D%BC.md)  
 
 # ***JAVA***
+- [자바 문법 정리](https://github.com/sksrpf1126/study/tree/main/java/java%20%EA%B8%B0%EC%B4%88%EB%AC%B8%EB%B2%95)  
 - [JVM이란](https://github.com/sksrpf1126/study/blob/main/java/JVM.md)  
 - [Call By Value VS Call By Reference](https://github.com/sksrpf1126/study/blob/main/java/Call%20By%20Value%20VS%20Call%20By%20Reference.md)  
 - [String Constant Pool](https://github.com/sksrpf1126/study/blob/main/java/String%20Constant%20Pool.md)  
