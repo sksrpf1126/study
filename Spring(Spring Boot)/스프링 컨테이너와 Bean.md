@@ -13,7 +13,7 @@ IOC와 DI를 공부하면서, 스프링 컨테이너와 빈이 꼬리를 무는 
 
 SpringBoot 이전에는 XMl을 통해 Bean을 관리하는 방법과 자바코드로 이루어진 설정파일을 통한 Bean을 관리하는 방법으로 크게 나눠진다.
 
-Xml을 통해 Bean을 관리하는 방법에 대해서는 https://wordbe.tistory.com/entry/Spring-IoC-%EB%B9%88-%EB%93%B1%EB%A1%9D-%EB%B0%A9%EB%B2%95-5%EA%B0%80%EC%A7%80 에 코드가 나와있다. (허락받지 않고 코드를 사용할 수는 없기에.. 그리고 최근에는 잘 사용이 되지 않는 방법이다.)
+Xml을 통해 Bean을 관리하는 방법에 대해서는 https://wordbe.tistory.com/entry/Spring-IoC-%EB%B9%88-%EB%93%B1%EB%A1%9D-%EB%B0%A9%EB%B2%95-5%EA%B0%80%EC%A7%80 에 코드가 나와있다. (최근에는 잘 사용이 되지 않는 방법이다.)
 
 그리고 자바 설정파일로 Bean을 관리하는 방법에 대해서는 코드로 정리한다.  
 해당 코드는 IOC와 DI의 코드와 이어지는 내용이다.
