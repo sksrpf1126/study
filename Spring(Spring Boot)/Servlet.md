@@ -150,9 +150,16 @@ RequestDispatcher는 FrontController에 도착한 request와 response를 기억�
 출처 : https://www.youtube.com/watch?v=calGCwG_B4Y  
  (3번은 View Resolver 이다.)
 
-1번, 2번, 3번은 DispatcherServlet에 의해 동작 되기 때문에 개발자는 결국 비즈니스 로직에만 집중해서 개발을 할 수 있는 환경이 마련이 된다.
+1번, 2번, 3번은 DispatcherServlet이 스프링 컨테이너로부터 주입받아서 자동으로 해주기 때문에 개발자는 결국 비즈니스 로직에만 집중해서 개발을 할 수 있는 환경이 마련이 된다.
 
-왼쪽 상단은 WebApplicationContext는 DispatcherServlet이 생성이 될 때 같이 생성이 되는데, Servlet
+왼쪽 상단은 WebApplicationContext는 DispatcherServlet이 생성이 될 때 같이 생성이 되는데, 스프링 컨테이너의 큰 틀이다.  
+ Servlet WebApplicationContext와 Root WebApplicationContext로 나눠진다.
+
+Servlet WebApplicationContext는 Controller, ViewResolver, HandlerMapping과 같은 웹 요청 처리 관련 객체들을 저장하고 관리한다.
+
+Root WebApplicationContext는 웹 요청 처리 관련 이외의 빈들 그러니까 Services, Repositories와 관련된 객체들을 저장하고 관리한다.
+
+Root가 먼저 만들어지고 이후에 Servlet이 만들어지기 때문에 Servlet WebApplicationContext의 객체(빈)들만이 Root WebApplicationContext 객체(빈)들에 대해 접근이 가능하다. 반대는 불가능하다.
 
 </br>
 
