@@ -17,6 +17,8 @@
 - [JVM이란](https://github.com/sksrpf1126/study/blob/main/java/JVM.md)  
 - [Call By Value VS Call By Reference](https://github.com/sksrpf1126/study/blob/main/java/Call%20By%20Value%20VS%20Call%20By%20Reference.md)  
 - [String Constant Pool](https://github.com/sksrpf1126/study/blob/main/java/String%20Constant%20Pool.md)  
+- [객체지향(OOP) 특징](https://github.com/sksrpf1126/study/blob/main/java/%EA%B0%9D%EC%B2%B4%EC%A7%80%ED%96%A5(OOP)%ED%8A%B9%EC%A7%95.md)  
+- [SOLID](https://github.com/sksrpf1126/study/blob/main/java/SOLID.md)  
 
 # ***Spring(boot)***  
 ***코드로 배우는 스프링 부트, 웹 MVC, DB 접근 기술 (김영한 강사님)***  
