@@ -32,4 +32,5 @@
 - [스프링 컨테이너와 빈](https://github.com/sksrpf1126/study/blob/main/Spring(Spring%20Boot)/%EC%8A%A4%ED%94%84%EB%A7%81%20%EC%BB%A8%ED%85%8C%EC%9D%B4%EB%84%88%EC%99%80%20Bean.md)  
 - [http 메서드](https://github.com/sksrpf1126/study/blob/main/Spring(Spring%20Boot)/http%20Method.md)  
 - [빈 주입 방법](https://github.com/sksrpf1126/study/blob/main/Spring(Spring%20Boot)/%EB%B9%88%20%EC%A3%BC%EC%9E%85%20%EB%B0%A9%EB%B2%95.md)  
+- [어노테이션 정리](https://github.com/sksrpf1126/study/blob/main/Spring(Spring%20Boot)/%EC%96%B4%EB%85%B8%ED%85%8C%EC%9D%B4%EC%85%98%20%EC%A0%95%EB%A6%AC.md)  
 
