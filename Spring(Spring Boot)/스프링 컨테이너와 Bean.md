@@ -134,6 +134,28 @@ public class AppConfig {
 
 </br>
 
+  <p align = "center">
+  <img src="https://user-images.githubusercontent.com/62879192/194822181-c3881ecd-5d84-413f-badc-f12b046de0d4.png" width = 70%>
+  </p>
+
+```java
+@Bean
+public MemberRepository memberRepository() {
+  if (memoryMemberRepository가 이미 스프링 컨테이너에 등록되어 있으면?) {
+  return 스프링 컨테이너에서 찾아서 반환;
+  } else { //스프링 컨테이너에 없으면
+  기존 로직을 호출해서 MemoryMemberRepository를 생성하고 스프링 컨테이너에 등록
+  return 반환
+  }
+}
+```
+
+좀 더 자세하게 보면 위와같이 AppConfig라는 @Configuration 어노테이션이 붙은 클래스를 상속받는 임의의 클래스가 CGLIB에 의해서 만들어진다.
+
+만들어진 임의의 클래스는 각 메서드를 오버라이딩하여 위와 같은 예시코드로 변경이 되어서 동작이 이루어진다. 이를 통해 싱글톤을 유지할 수 있는 것이다.
+
+</br>
+
 ---
 
 ## **_@Configuration + @Bean VS @Component + @Bean_**
