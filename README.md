@@ -27,6 +27,11 @@
 
 ---
 
+***스프링 핵심 원리 - 기본편(김영한님)***  
+- [조회 빈이 2개 이상일 때 설명을 추가하라](https://github.com/sksrpf1126/study/blob/main/Spring(Spring%20Boot)/%EC%8A%A4%ED%94%84%EB%A7%81%20%ED%95%B5%EC%8B%AC%20%EC%9B%90%EB%A6%AC%20-%20%EA%B8%B0%EB%B3%B8%ED%8E%B8/%EC%A1%B0%ED%9A%8C%20%EB%B9%88%EC%9D%B4%202%EA%B0%9C%EC%9D%B4%EC%83%81%EC%9D%BC%20%EB%95%8C.md)  
+
+---
+
 - [Servlet](https://github.com/sksrpf1126/study/blob/main/Spring(Spring%20Boot)/Servlet.md)  
 - [IOC와 DI](https://github.com/sksrpf1126/study/blob/main/Spring(Spring%20Boot)/IOC%EC%99%80%20DI.md)  
 - [스프링 컨테이너와 빈](https://github.com/sksrpf1126/study/blob/main/Spring(Spring%20Boot)/%EC%8A%A4%ED%94%84%EB%A7%81%20%EC%BB%A8%ED%85%8C%EC%9D%B4%EB%84%88%EC%99%80%20Bean.md)  
