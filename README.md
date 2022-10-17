@@ -29,6 +29,7 @@
 
 ***스프링 핵심 원리 - 기본편(김영한님)***  
 - [조회 빈이 2개 이상일 때 설명을 추가하라](https://github.com/sksrpf1126/study/blob/main/Spring(Spring%20Boot)/%EC%8A%A4%ED%94%84%EB%A7%81%20%ED%95%B5%EC%8B%AC%20%EC%9B%90%EB%A6%AC%20-%20%EA%B8%B0%EB%B3%B8%ED%8E%B8/%EC%A1%B0%ED%9A%8C%20%EB%B9%88%EC%9D%B4%202%EA%B0%9C%EC%9D%B4%EC%83%81%EC%9D%BC%20%EB%95%8C.md)  
+- [빈 스코프](https://github.com/sksrpf1126/study/blob/main/Spring(Spring%20Boot)/%EC%8A%A4%ED%94%84%EB%A7%81%20%ED%95%B5%EC%8B%AC%20%EC%9B%90%EB%A6%AC%20-%20%EA%B8%B0%EB%B3%B8%ED%8E%B8/%EB%B9%88%20%EC%8A%A4%EC%BD%94%ED%94%84.md)  
 
 ---
 
