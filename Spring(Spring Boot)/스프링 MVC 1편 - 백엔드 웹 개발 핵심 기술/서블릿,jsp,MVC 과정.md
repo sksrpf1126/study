@@ -288,3 +288,5 @@ public class MvcMemberSaveServlet extends HttpServlet {
 그렇기에 나온 방법이 **_Front Controller 패턴_** 이다.
 
 위 패턴이 적용된 것이 바로 스프링 MVC이다.
+
+다음 내용으로 MVC 프레임워크를 만드는 방법으로 위 패턴을 적용해 볼 것이다.
