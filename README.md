@@ -78,3 +78,16 @@
 ---
 
 ***스프링 핵심 원리 - 고급편(김영한님)***  
+- [ThreadLocal -1 (원리)](https://github.com/sksrpf1126/study/blob/main/Spring(Spring%20Boot)/%EC%8A%A4%ED%94%84%EB%A7%81%20%ED%95%B5%EC%8B%AC%20%EC%9B%90%EB%A6%AC%20-%20%EA%B3%A0%EA%B8%89%ED%8E%B8/ThreadLocal%20%20-%201%20(%EC%9B%90%EB%A6%AC).md)  
+- [ThreadLocal -2 (대안책)](https://github.com/sksrpf1126/study/blob/main/Spring(Spring%20Boot)/%EC%8A%A4%ED%94%84%EB%A7%81%20%ED%95%B5%EC%8B%AC%20%EC%9B%90%EB%A6%AC%20-%20%EA%B3%A0%EA%B8%89%ED%8E%B8/ThreadLocal%20-%202%20(%EB%8C%80%EC%95%88%EC%B1%85).md)  
+- [템플릿 메서드 패턴](https://github.com/sksrpf1126/study/blob/main/Spring(Spring%20Boot)/%EC%8A%A4%ED%94%84%EB%A7%81%20%ED%95%B5%EC%8B%AC%20%EC%9B%90%EB%A6%AC%20-%20%EA%B3%A0%EA%B8%89%ED%8E%B8/%ED%85%9C%ED%94%8C%EB%A6%BF%20%EB%A9%94%EC%84%9C%EB%93%9C%20%ED%8C%A8%ED%84%B4.md)  
+- [전략 패턴](https://github.com/sksrpf1126/study/blob/main/Spring(Spring%20Boot)/%EC%8A%A4%ED%94%84%EB%A7%81%20%ED%95%B5%EC%8B%AC%20%EC%9B%90%EB%A6%AC%20-%20%EA%B3%A0%EA%B8%89%ED%8E%B8/%EC%A0%84%EB%9E%B5%20%ED%8C%A8%ED%84%B4.md)  
+- [템플릿 콜백 패턴](https://github.com/sksrpf1126/study/blob/main/Spring(Spring%20Boot)/%EC%8A%A4%ED%94%84%EB%A7%81%20%ED%95%B5%EC%8B%AC%20%EC%9B%90%EB%A6%AC%20-%20%EA%B3%A0%EA%B8%89%ED%8E%B8/%ED%85%9C%ED%94%8C%EB%A6%BF%20%EC%BD%9C%EB%B0%B1%20%ED%8C%A8%ED%84%B4.md)  
+- [프록시와 디자인 패턴](https://github.com/sksrpf1126/study/blob/main/Spring(Spring%20Boot)/%EC%8A%A4%ED%94%84%EB%A7%81%20%ED%95%B5%EC%8B%AC%20%EC%9B%90%EB%A6%AC%20-%20%EA%B3%A0%EA%B8%89%ED%8E%B8/%ED%94%84%EB%A1%9D%EC%8B%9C%EC%99%80%20%EB%94%94%EC%9E%90%EC%9D%B8%20%ED%8C%A8%ED%84%B4.md)  
+- [동적 프록시 - JDK](https://github.com/sksrpf1126/study/blob/main/Spring(Spring%20Boot)/%EC%8A%A4%ED%94%84%EB%A7%81%20%ED%95%B5%EC%8B%AC%20%EC%9B%90%EB%A6%AC%20-%20%EA%B3%A0%EA%B8%89%ED%8E%B8/%EB%8F%99%EC%A0%81%20%ED%94%84%EB%A1%9D%EC%8B%9C%20-%20JDK.md)  
+- [동적 프록시 - CGLIB](https://github.com/sksrpf1126/study/blob/main/Spring(Spring%20Boot)/%EC%8A%A4%ED%94%84%EB%A7%81%20%ED%95%B5%EC%8B%AC%20%EC%9B%90%EB%A6%AC%20-%20%EA%B3%A0%EA%B8%89%ED%8E%B8/%EB%8F%99%EC%A0%81%20%ED%94%84%EB%A1%9D%EC%8B%9C%20-%20CGLIB.md)  
+- [동적 프록시 - ProxyFactory](https://github.com/sksrpf1126/study/blob/main/Spring(Spring%20Boot)/%EC%8A%A4%ED%94%84%EB%A7%81%20%ED%95%B5%EC%8B%AC%20%EC%9B%90%EB%A6%AC%20-%20%EA%B3%A0%EA%B8%89%ED%8E%B8/%EB%8F%99%EC%A0%81%20%ED%94%84%EB%A1%9D%EC%8B%9C%20-%20ProxyFactory.md)  
+- [빈 후처리기](https://github.com/sksrpf1126/study/blob/main/Spring(Spring%20Boot)/%EC%8A%A4%ED%94%84%EB%A7%81%20%ED%95%B5%EC%8B%AC%20%EC%9B%90%EB%A6%AC%20-%20%EA%B3%A0%EA%B8%89%ED%8E%B8/%EB%B9%88%20%ED%9B%84%EC%B2%98%EB%A6%AC%EA%B8%B0.md)  
+- [@Aspect - 기본](https://github.com/sksrpf1126/study/blob/main/Spring(Spring%20Boot)/%EC%8A%A4%ED%94%84%EB%A7%81%20%ED%95%B5%EC%8B%AC%20%EC%9B%90%EB%A6%AC%20-%20%EA%B3%A0%EA%B8%89%ED%8E%B8/%40Aspect%20-%20%EA%B8%B0%EB%B3%B8.md)  
+- [@Aspect - AOP구현](https://github.com/sksrpf1126/study/blob/main/Spring(Spring%20Boot)/%EC%8A%A4%ED%94%84%EB%A7%81%20%ED%95%B5%EC%8B%AC%20%EC%9B%90%EB%A6%AC%20-%20%EA%B3%A0%EA%B8%89%ED%8E%B8/%40Aspect%20-%20AOP%EA%B5%AC%ED%98%84.md)  
+- [프록시 한계](https://github.com/sksrpf1126/study/blob/main/Spring(Spring%20Boot)/%EC%8A%A4%ED%94%84%EB%A7%81%20%ED%95%B5%EC%8B%AC%20%EC%9B%90%EB%A6%AC%20-%20%EA%B3%A0%EA%B8%89%ED%8E%B8/%ED%94%84%EB%A1%9D%EC%8B%9C%20%ED%95%9C%EA%B3%84.md)  
