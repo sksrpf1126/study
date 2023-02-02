@@ -41,8 +41,8 @@
 
 # ***JPA***
 
-***JPA 인프런 강의***
--[인프런 JPA 강의 (김영한님)](https://github.com/sksrpf1126/study/tree/main/JPA)  
+***JPA 인프런 강의***  
+- [인프런 JPA 강의 (김영한님)](https://github.com/sksrpf1126/study/tree/main/JPA)  
 
 ---
 
