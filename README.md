@@ -44,6 +44,9 @@
 ***JPA 인프런 강의***  
 - [인프런 JPA 강의 (김영한님)](https://github.com/sksrpf1126/study/tree/main/JPA)  
 
+***JPA 공부 내용***
+- [Count쿼리와 Exists쿼리](https://github.com/sksrpf1126/study/blob/main/JPA/Count%20%EC%BF%BC%EB%A6%AC%EC%99%80%20Exists%20%EC%BF%BC%EB%A6%AC.md)  
+
 ---
 
 # ***DB***
