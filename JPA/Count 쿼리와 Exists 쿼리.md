@@ -142,9 +142,61 @@ where
 ```
 
 count쿼리를 통해서 조회하지만, left outer join 3번이 inner join 2번으로 변경되었다.  
-count쿼리의 성능이 저하되는 이유는 **_조건으로 필터링된 데이터 수_** 가 많을 때 해당 데이터들을 전부 카운팅하느라 성능이 저하가 발생 된다.  
-하지만 게시글에 같은 사용자가 지원했는가에 대한 조건으로 필터링 되는 데이터는 문제가 생기지 않는 이상 0건 또는 1건일 뿐이다. 또한, 메서드명도 자유롭게 사용할 수 있다는 이점이 있다.  
-그래서 프로젝트에서는 count 쿼리를 사용 중이다.  
-user 테이블과 조인하는 것이 오히려 더 성능이 저하될 것이라 판단했기 때문이다.
+하나의 글에 무수히 많은 지원자들이 몰릴 경우에는 spring data JPA 방식의 limit 1 방식이 효율적일 수도 있겠으나, 그렇지 않는다면 user 테이블과의 JOIN이 오히려 성능이 악화될 것 같다고 판단하여 후자의 방법을 선택했다.
 
-물론, Querydsl을 적용하면, 위 적용한 쿼리에 count쿼리가 아닌 limit 1 방식으로 바꿔볼 예정이다.
+또한, spring data JPA 방식은 메서드 명이 너무 길어진다는 단점 또한 가지고 있다.
+
+물론, Querydsl을 적용하면, count쿼리가 아닌 limit 1 방식으로 바꿔볼 예정이다.
+
+</br>
+
+---
+
+## **_Querydsl 도입_**
+
+JPQL만으로 동적쿼리를 작성하다보니 쿼리가 너무 복잡해져서 프로젝트에 Querydsl을 도입하기로 하였다.
+
+이에 따라 count쿼리 또한 Querydsl을 통해 리팩토링을 하기로 하였다.
+
+```java
+    @Override
+    public boolean existsApplicantByRecruitBoard(Long boardId, Long userId) {
+        Integer fetchOne = jpaQueryFactory
+                .selectOne()
+                .from(recruitBoard)
+                .innerJoin(recruitBoard.boardPositions, boardPosition)
+                .innerJoin(boardPosition.applicants, applicant)
+                .where(recruitBoard.id.eq(boardId), applicant.user.id.eq(userId))
+                .fetchFirst();
+
+        return fetchOne != null;
+    }
+```
+
+위 방식이 기존의 JPQL로 작성한 Count쿼리를 Querydsl로 변경한 코드이다.
+
+핵심은 마지막의 fetchFirst()로, 내부적으로 limit 1 이 붙은 쿼리가 나가서, 조건에 맞는 데이터가 있으면 이후의 필터링은 거치치 않고, 해당 데이터를 바로 반환하게 된다.  
+이후, selectOne()을 통해 데이터가 존재하면 반환값으로 1을, 없다면 null을 반환하기 때문에 null이 아니라면 해당 게시글에 지원자가 이미 지원했음을 알 수 있다.
+
+</br>
+
+```sql
+select
+            1 as col_0_0_
+        from
+            recruit_board recruitboa0_
+        inner join
+            board_position boardposit1_
+                on recruitboa0_.recruit_board_id=boardposit1_.recruit_board_id
+        inner join
+            applicant applicants2_
+                on boardposit1_.board_position_id=applicants2_.board_position_id
+        where
+            recruitboa0_.recruit_board_id=?
+            and applicants2_.user_id=? limit 1
+```
+
+위는 Querydsl로 변경 후에 실제로 나가는 쿼리이다.  
+spring data JPA의 조인 3번이 나가는 문제도 해결하였으며, count쿼리의 문제점까지 해결이 되었다.
+
+처음부터 바로 Querydsl을 도입하여 사용을 했었다면 JPQL, spring data JPA가 어떤 부분이 지원이 안되고, 어떻게 동작하는지 자세히 알지 못하고 넘어갔겠지만, 단계적으로 JPQL과 spring data JPA를 사용하다가 한계점을 느끼거나 복잡해질 때 Querydsl을 도입하다 보니 Querydsl을 왜 사용하는지 확실히 체감이 되었다.
