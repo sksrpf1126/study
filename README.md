@@ -44,7 +44,8 @@
 - [인프런 JPA 강의 (김영한님)](https://github.com/sksrpf1126/study/tree/main/JPA)  
 
 ***JPA 공부 내용***
-- [Count쿼리와 Exists쿼리](https://github.com/sksrpf1126/study/blob/main/JPA/Count%20%EC%BF%BC%EB%A6%AC%EC%99%80%20Exists%20%EC%BF%BC%EB%A6%AC.md)  
+- [Count쿼리와 Exists쿼리](https://github.com/sksrpf1126/study/blob/main/JPA/Count%20%EC%BF%BC%EB%A6%AC%EC%99%80%20Exists%20%EC%BF%BC%EB%A6%AC.md)
+- [조회수 동시성 문제](https://github.com/sksrpf1126/study/blob/main/%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8/%EC%A1%B0%ED%9A%8C%EC%88%98%20%EB%8F%99%EC%8B%9C%EC%84%B1%20%EB%AC%B8%EC%A0%9C.md)  
 
 ---
 
