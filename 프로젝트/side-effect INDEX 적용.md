@@ -1,6 +1,6 @@
 # **_좋아요 기능 INDEX 적용_**
 
-해당 내용은 side-effect 프로젝트를 진행하면서 정리한 내용입니다.
+해당 내용은 [사이드 이펙트](https://github.com/Side-Effect-Team/side-effect-backend) 프로젝트와 관련된 내용입니다.
 
 ---
 
