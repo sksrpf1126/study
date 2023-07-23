@@ -28,7 +28,7 @@
 ***스프링 인프런 강의***
 - [인프런 Spring 강의 (김영한님)](https://github.com/sksrpf1126/study/tree/main/Spring(Spring%20Boot))  
 
-***Spring 기초***
+***Spring 공부 내용***
 - [Servlet](https://github.com/sksrpf1126/study/blob/main/Spring(Spring%20Boot)/Servlet.md)  
 - [IOC와 DI](https://github.com/sksrpf1126/study/blob/main/Spring(Spring%20Boot)/IOC%EC%99%80%20DI.md)  
 - [스프링 컨테이너와 빈](https://github.com/sksrpf1126/study/blob/main/Spring(Spring%20Boot)/%EC%8A%A4%ED%94%84%EB%A7%81%20%EC%BB%A8%ED%85%8C%EC%9D%B4%EB%84%88%EC%99%80%20Bean.md)  
@@ -43,10 +43,6 @@
 ***JPA 인프런 강의***  
 - [인프런 JPA 강의 (김영한님)](https://github.com/sksrpf1126/study/tree/main/JPA)  
 
-***JPA 공부 내용***
-- [Count쿼리와 Exists쿼리](https://github.com/sksrpf1126/study/blob/main/JPA/Count%20%EC%BF%BC%EB%A6%AC%EC%99%80%20Exists%20%EC%BF%BC%EB%A6%AC.md)
-- [조회수 동시성 문제](https://github.com/sksrpf1126/study/blob/main/%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8/%EC%A1%B0%ED%9A%8C%EC%88%98%20%EB%8F%99%EC%8B%9C%EC%84%B1%20%EB%AC%B8%EC%A0%9C.md)  
-
 ---
 
 # ***DB***
@@ -60,4 +56,16 @@
 # ***Spring Security***
 - [Spring Security 기본](https://github.com/sksrpf1126/study/blob/main/%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8/Spring%20Security.md) 
 - [Spring Security 인증 인가 처리](https://github.com/sksrpf1126/study/blob/main/%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8/Spring%20Security%20%EC%9D%B8%EC%A6%9D%20%EC%9D%B8%EA%B0%80.md) 
-- [Spring Security Filter 공통 예외 처리](https://github.com/sksrpf1126/study/blob/main/%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8/Spring%20Security%20Filter%20%EA%B3%B5%ED%86%B5%20%EC%98%88%EC%99%B8%20%EC%B2%98%EB%A6%AC.md) 
+- [Spring Security Filter 공통 예외 처리](https://github.com/sksrpf1126/study/blob/main/%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8/Spring%20Security%20Filter%20%EA%B3%B5%ED%86%B5%20%EC%98%88%EC%99%B8%20%EC%B2%98%EB%A6%AC.md)
+
+---
+
+# ***사이드 프로젝트 이슈 정리***
+
+## ***Side Effect 프로젝트***
+- [Count쿼리와 Exists쿼리](https://github.com/sksrpf1126/study/blob/main/JPA/Count%20%EC%BF%BC%EB%A6%AC%EC%99%80%20Exists%20%EC%BF%BC%EB%A6%AC.md)
+- [조회수 동시성 문제](https://github.com/sksrpf1126/study/blob/main/%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8/%EC%A1%B0%ED%9A%8C%EC%88%98%20%EB%8F%99%EC%8B%9C%EC%84%B1%20%EB%AC%B8%EC%A0%9C.md)
+- [ENUM 대소문자 처리](https://github.com/sksrpf1126/study/blob/main/%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8/ENUM%20%EB%8C%80%EC%86%8C%EB%AC%B8%EC%9E%90%20%EC%B2%98%EB%A6%AC.md)
+- [QueryDSL 동적쿼리 개선](https://github.com/sksrpf1126/study/blob/main/%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8/QueryDSL%EC%9D%84%20%ED%86%B5%ED%95%9C%20%EB%8F%99%EC%A0%81%20%EC%BF%BC%EB%A6%AC%20%EA%B0%9C%EC%84%A0.md)
+- [Spring Security @ExceptionHandler 적용](https://github.com/sksrpf1126/study/blob/main/%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8/Side%20Effect%20%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8%20%ED%95%84%ED%84%B0%20%EC%98%88%EC%99%B8%20%EC%B2%98%EB%A6%AC.md)
+- [인덱스 적용](https://github.com/sksrpf1126/study/blob/main/%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8/side-effect%20INDEX%20%EC%A0%81%EC%9A%A9.md)  
