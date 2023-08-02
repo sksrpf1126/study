@@ -112,4 +112,4 @@ public class SpringMemberControllerV3 {
 
 이후, 핸들러를 통해 해당 핸들러와 호환되는(사용할 수 있는) 어댑터를 가져오고, 이를 통해 컨트롤러를 실행시키는 것이다.
 
-메서드에 붙어있는 @RequestParam, @RequestBody, Model 객체 등을 보고 스프링이 이러한 부분들도 알아서 맞게 제공해준다.
+메서드에 붙어있는 @RequestParam, @RequestBody, Model 객체 등을 보고 스프링이 이러한 부분들도 알아서 맞게 제공해준다().

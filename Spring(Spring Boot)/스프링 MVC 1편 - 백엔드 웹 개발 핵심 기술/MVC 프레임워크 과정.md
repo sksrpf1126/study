@@ -769,6 +769,6 @@ public class FrontControllerServletV5 extends HttpServlet {
 
 지금까지 정리한 내용은 스프링 MVC 프레임워크의 핵심 코드의 축약 버전이다.
 
-과장해서 말하면 결국 위 V5방식이 스프링 MVC 프레임워크의 동작방식과 매우 유사하다는 것을 알 수 있다.
+결국 위 V5방식이 스프링 MVC 프레임워크의 동작방식과 매우 유사하다는 것을 알 수 있다.
 
 다음 내용은 현재 개발한 V5버전과 스프링 MVC를 비교하면서 스프링 MVC를 정리할 것이다.
