@@ -60,7 +60,7 @@
 
 ---
 
-# ***사이드 프로젝트 이슈 정리***
+# ***프로젝트 정리***
 
 ## ***Side Effect 프로젝트***
 - [Count쿼리와 Exists쿼리](https://github.com/sksrpf1126/study/blob/main/JPA/Count%20%EC%BF%BC%EB%A6%AC%EC%99%80%20Exists%20%EC%BF%BC%EB%A6%AC.md)
