@@ -1,4 +1,4 @@
-# ***자바 문법 정리***
+# ***자바 기본 문법 정리***
 
 - [컬렉션 프레임워크란?](https://github.com/sksrpf1126/study/tree/main/java/java%20%EA%B8%B0%EC%B4%88%EB%AC%B8%EB%B2%95/%EC%BB%AC%EB%A0%89%EC%85%98%20%ED%94%84%EB%A0%88%EC%9E%84%EC%9B%8C%ED%81%AC)  
   -[ArrayList](https://github.com/sksrpf1126/study/blob/main/java/java%20%EA%B8%B0%EC%B4%88%EB%AC%B8%EB%B2%95/%EC%BB%AC%EB%A0%89%EC%85%98%20%ED%94%84%EB%A0%88%EC%9E%84%EC%9B%8C%ED%81%AC/ArrayList.md)  
