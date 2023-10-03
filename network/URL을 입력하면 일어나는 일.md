@@ -1,6 +1,6 @@
 # **_URL을 입력하면 일어나는 일_**
 
-## **_주소창에 "www.naver.com" 을 입력했을 때 동작과정_**
+## **_주소창에 "www.naver.com" 을 입력했을 때 일어나는 일_**
 
 1. DNS를 통해 URL에 맞는 IP를 가져온다. - [DNS에 대하여](https://github.com/sksrpf1126/study/blob/main/network/DNS.md)  
 2. 가져온 IP를 통해 TCP Socket을 연결한다. - [TCP 3-way handshaking](https://github.com/sksrpf1126/study/blob/main/network/TCP%EC%99%80%20UDP.md)  
