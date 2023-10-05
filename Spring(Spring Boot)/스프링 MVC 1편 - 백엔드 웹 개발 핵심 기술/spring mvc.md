@@ -4,9 +4,9 @@
 
 </br>
 
-이전에는 직접 spring MVC 프레임워크과 비슷하게 mvc 프레임워크를 만들어 봤다.
+이전에는 직접 spring MVC 프레임워크과 비슷하게 MVC 프레임워크를 만들어 봤다.
 
-이번에는 spring MVC 프레임워크의 구조와 만들어본 mvc 프레임워크를 비교하며, spring MVC 동작 방식을 살펴보자.
+이번에는 spring MVC 프레임워크의 구조와 만들어본 MVC 프레임워크를 비교하며, spring MVC 동작 방식을 살펴보자.
 
 </br>
 
@@ -108,8 +108,8 @@ public class SpringMemberControllerV3 {
 }
 ```
 
-@Controller 애노테이션을 보고 dispatcher Servlet은 핸들러 매핑의 정보를 얻어온다.
+@Controller 애노테이션을 보고 dispatcherServlet은 핸들러 매핑의 정보를 얻어온다.
 
 이후, 핸들러를 통해 해당 핸들러와 호환되는(사용할 수 있는) 어댑터를 가져오고, 이를 통해 컨트롤러를 실행시키는 것이다.
 
-메서드에 붙어있는 @RequestParam, @RequestBody, Model 객체 등을 보고 스프링이 이러한 부분들도 알아서 맞게 제공해준다().
+메서드에 붙어있는 @RequestParam, @RequestBody, Model 객체 등을 보고 스프링이 이러한 부분들도 알아서 맞게 제공해준다.
