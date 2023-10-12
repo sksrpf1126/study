@@ -6,7 +6,7 @@
 
 이전에 **_Servlet Ftiler_** 를 통해서 클라이언트의 요청 로그와 로그인 여부에 따른 페이지 접근제어를 하였다.
 
-이번에는 Spring에서 Servlet Filter보다 더 좋은 Interceptor를 활용하여 Servlet Filter를 대체해 보자.
+이번에는 Spring에서 Servlet Filter와는 비슷하면서도 다른 Interceptor를 활용하여 Servlet Filter를 대체해 보자.
 
 Interceptor의 기본적인 구조는 아래와 같다.
 
