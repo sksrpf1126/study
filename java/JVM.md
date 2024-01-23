@@ -113,7 +113,7 @@
        출처 : https://www.programmersought.com/article/4905216600/
 
     </br>
-    자바 7에서 자바 8로 넘어가면서 Heap영역에 존재했던 PermGen(Permanent) 영역이 Heap영역에서 빠지고 Native Memory라는 공간(JVM이 아닌 OS에서 관리하는 메모리 공간)으로 MetaSpace라는 이름으로 변경되어 들어갔다.  
+    자바 7에서 자바 8로 넘어가면서 Heap영역에 존재했던 PermGen(Permanent Generation) 영역이 Heap영역에서 빠지고 Native Memory라는 공간(JVM이 아닌 OS에서 관리하는 메모리 공간)으로 MetaSpace라는 이름으로 변경되어 들어갔다.  
     MetaSpace는 JVM에서 관리하고 실행하는 모든 Class들에 대한 MetaData 즉 해당 클래스에 대한 모든 정보를 저장하는 곳으로써, 클래스의 구조, 메서드에 대한 MetaData, 어노테이션 등의 정보를 담고 있다.
 
 ### **_PermGen에 대한 내용 변경!!!_**
