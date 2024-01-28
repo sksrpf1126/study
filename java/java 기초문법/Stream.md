@@ -198,4 +198,10 @@ Sorted내부에서 처음에 호출한 것은 Comparator.comparing(Student :: ge
 
 간단하게 보면, 결국 Student의 getBan을 통해 반한된 값으로 compareTo를 호출하여 비교를 진행하는 것이다.
 
-그래서 반으로 우선 정렬이 이루어진 뒤에 추가적으로 .thenComparing(Comparator.naturalOrder())를 통해 Student에 오버라이딩된 compareTo를 호출하여 점수로 정렬하는 것이다.
+그래서 반으로 우선 정렬이 이루어진 뒤에 추가적으로 .thenComparing(Comparator.naturalOrder())를 통해 Student에 오버라이딩된 compareTo를 호출하여 점수로 정렬하는 것이다.  
+
+---
+
+## Stream API 연습문제 내용
+
+https://github.com/sksrpf1126/stream-quiz  
