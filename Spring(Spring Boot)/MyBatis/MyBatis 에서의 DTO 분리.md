@@ -33,7 +33,7 @@ https://umbum.dev/1206/ -> DTO와 Domain Model을 분리해야 하는 필요성
 ## MVC 패턴
 
 <p align = "center" style = 'background-color : #ffffff'>
-<img src="https://github.com/sksrpf1126/study/assets/62879192/e95bad90-dc46-42f5-89ae-ee3a28a001e5"  width = 100%>
+<img src="https://github.com/sksrpf1126/study/assets/62879192/44e6e6d5-e74d-4dc0-96b0-b0ce00a5eb96"  width = 100%>
 </p>
 
 MVC 패턴은 어플리케이션을 개발할 때 그 구성 요소를 Model과 View 및 Controller 등 세 가지 역할로 구분하는 디자인 패턴입니다. 비즈니스 처리 로직(Model)과 UI 영역(View)은 서로의 존재를 인지하지 못하고, Controller가 중간에서 Model과 View의 연결을 담당합니다.
