@@ -38,6 +38,9 @@
 - [어노테이션 정리](https://github.com/sksrpf1126/study/blob/main/Spring(Spring%20Boot)/%EC%96%B4%EB%85%B8%ED%85%8C%EC%9D%B4%EC%85%98%20%EC%A0%95%EB%A6%AC.md)
 - [@ModelAttribute와 @RequestBody 역직렬화](https://github.com/sksrpf1126/study/blob/main/Spring(Spring%20Boot)/%40ModelAttribute%EC%99%80%20%40RequestBody%20%EC%97%AD%EC%A7%81%EB%A0%AC%ED%99%94.md)  
 
+***MyBatis 공부 내용***
+-[MyBatis에서의 DTO 분리](https://github.com/sksrpf1126/study/blob/main/Spring(Spring%20Boot)/MyBatis/MyBatis%20%EC%97%90%EC%84%9C%EC%9D%98%20DTO%20%EB%B6%84%EB%A6%AC.md)  
+
 ---
 
 # ***JPA***
