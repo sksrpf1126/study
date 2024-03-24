@@ -407,6 +407,16 @@ Token 방식이 보안 문제에 더 좋기 때문이다.
 잘 만들어진 이미지가 있어서 참고용으로 가져왔다.  
 여기서 처음보는 명령어는 git reset과 git pull 이며, 해당 명령어들은 우선 그림으로만 익혀두자.  
 
+
+### ***위 방법보다 편한 방법 그건 바로 git clone***
+위에서는 git init부터 git add하고... git commit.. git remote add .... git push... 이런 명령어들로 내 로컬환경을 만들어두고, 원격레포지토리랑 연결했다.  
+근데 사실 git clone이라는 명령어 하나만 쓰면, 위처럼 안해도 된다.  
+git clone이라는 명령어는 git remote add의 명령어와 git pull멸령어를 합쳐서 실행하는 명령어이며, git pull은 아직 모르지만 git remote add라는 명령어는 위에서 다뤄봤다.  
+
+그래도 결국 git add, git commit, git push 명령어와 깃 영역에 대한 논리적인 흐름은 원격 레포지토리에 변경사항을 적용할 때 계속 쓰이기 때문에 반드시 위에를 이해하고 이후에 git clone이라는 명령어를 써먹자.  
+
+git clone을 어떻게 써먹는지 알고싶으면 아래의 명령어 관련 글들에 git clone관련 글들을 읽어보거나, 이후에 정리할 sourcetree부분에서 "소스트리와 로컬 레포지토리 연결하는 부분"의 여러 방법들 중 하나인 clone 방식에서 설명할 예정이다.  
+
 ---
 
 ## ***다음에는 무엇을?***
