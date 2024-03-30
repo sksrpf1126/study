@@ -303,7 +303,7 @@ save controller 와 member list controller 또한 view를 처리하지 않고, M
 
 ## **_MVC 프레임워크 V3_**
 
-V2버전에서 컨트롤러가 서블리셍 종속적인점, 뷰 이름이 중복인점을 해결해보자.
+V2버전에서 컨트롤러가 서블릿에 종속적인점, 뷰 이름이 중복인점을 해결해보자.
 
 <p align = "center">
 <img src="https://user-images.githubusercontent.com/62879192/196867430-9f6f104e-47a2-440a-bbf2-8b3983bf5f7f.png" width = 70%>
