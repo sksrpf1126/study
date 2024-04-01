@@ -16,7 +16,8 @@
 
 #  ***GIT***
 - [git 기초 정복](https://github.com/sksrpf1126/study/blob/main/git/git%20%EA%B8%B0%EC%B4%88%20%EC%A0%95%EB%B3%B5.md)
-- [git 명렁어 참고 글 모음](https://github.com/sksrpf1126/study/blob/main/git/git%20%EB%AA%85%EB%A0%B9%EC%96%B4%20%EB%B0%8F%20%EB%8F%99%EC%9E%91%20%EC%B0%B8%EA%B3%A0%20%EA%B8%80.md)  
+- [git 명렁어 참고 글 모음](https://github.com/sksrpf1126/study/blob/main/git/git%20%EB%AA%85%EB%A0%B9%EC%96%B4%20%EB%B0%8F%20%EB%8F%99%EC%9E%91%20%EC%B0%B8%EA%B3%A0%20%EA%B8%80.md)
+- [SourceTree 내용 정리](https://github.com/sksrpf1126/study/blob/main/git/SourceTree.md)  
 
 
 ---
