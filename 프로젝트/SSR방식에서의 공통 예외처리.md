@@ -163,7 +163,13 @@ public class BaseException extends RuntimeException {
 BaseException의 경우에는 위와 같이 RuntimeException을 상속받는 자식클래스로 정의하였으며, 내부적으로 errorCode를 가지도록 하였습니다.  
 또한 BaseException을 상속받는 여러 자식 클래스들을 정의하였으며 대표적인 예시로 AuthExeption, EntityNotFoundException 등을 정의하여 각각의 예외에 맞는 이름으로 클래스명을 정의하였습니다.  
 
-#### ***예외처리 테스트 로직***
+</br>
+
+---
+
+### ***예외처리 테스트***
+
+위와 같이 예외를 처리하도록 구현했을 경우에 어떻게 처리되는지를 확인해보기 위해서 아래와 같이 하나의 메서드를 구현하였습니다.  
 
 ```java
     @GetMapping("/test")
@@ -178,5 +184,124 @@ BaseException의 경우에는 위와 같이 RuntimeException을 상속받는 자
 
 /member/test 경로로 errorType으로 값이 api로 넘어온다면 BaseException에 ErrorCode.MEMBER_EXISTS값을 담아서 예외를 발생시킵니다.  
 
+#### ***호출***
 
+<p align ="center"><img src="https://github.com/user-attachments/assets/d7c28ec9-ce40-4257-8ca1-3ac800257afa" width = 100%></p>
 
+해당 메서드를 errorType을 api 값으로 전달해서 호출하게 된다면 위와 같이 JSON 형식으로 예외를 처리하여 응답하게 됩니다.  
+
+#### 문제점
+
+CSR방식에서라면 위처럼 JSON 형식으로 에러처리에 대한 값을 준다면, 프론트 개발자가 핸들링하여 각 예외에 적합하게 처리하면 됩니다.  
+
+저희의 프로젝트에서도 AJAX의 호출에 대해서는 위와 같이 JSON 형식으로 응답해주면 error 메서드에서 알맞게 처리만 하면 됩니다.  
+
+하지만 문제는 저희의 프로젝트의 구조는 SSR방식으로, 페이지에 대한 요청에 의해 HTML을 최종적으로 반환해야하는 구조에서 에러가 발생했을 때 위와 같이 JSON으로 응답하게 된다면 사용자에게 그대로 위와 같이 그대로 데이터가 보여지게 됩니다.  
+
+하지만 일반적으로 페이즈를 요청하는 경우에 서버나 요청주소와 같은 문제가 생겼을 경우에는 문제에 대해 안내하는 페이지나 대표적인 404에러 페이지와 같이 ***JSON 형식이 아닌 페이지 형식*** 으로 응답하게 됩니다.  
+
+</br>
+
+---
+
+### 해결 방안
+
+그래서 제가 생각한 방안은 페이지를 요청할 때에 처리하는 로직들에서 발생시키는 예외와 AJAX와 같이 API 호출에 대해 처리하는 로직들에서 발생시키는 예외의 방식을 구분해서 처리하기로 했습니다.  
+
+지금까지 위에서 설명한 방식은 AJAX와 같이 API 호출에 대하여 예외를 처리하는 방식이었기 때문에 페이지 요청에 대한 예외를 처리하는 공통 로직이 필요했습니다.  
+
+#### 페이지 요청에 대한 예외 공통 처리
+
+```java
+@ControllerAdvice
+public class GlobalPageExceptionHandler {
+
+    @ExceptionHandler(ErrorPageException.class)
+    public ModelAndView handleErrorPageException(HttpServletResponse response, ErrorPageException e) {
+        ErrorCode errorCode = e.getErrorCode();
+        response.setStatus(errorCode.getStatus());
+
+        ModelAndView modelAndView = new ModelAndView("/error/" + errorCode.getStatus());
+        modelAndView.addObject("message", errorCode.getMessage());
+
+        return modelAndView;
+    }
+
+}
+```
+위와 같이 @ControllerAdvice를 통해 페이지 요청에 대해 처리하는 로직에서 발생시킬 예외에 대하여 처리하는 공통 로직을 구현했습니다.  
+
+발생시킬 예외는 우선 간단하게 ErrorPageException이라는 RuntimeException을 상속받은 클래스로 구현을 했습니다.  
+
+내부 로직을 보면 동일하게 ErrorCode를 사용하는 것을 알 수 있습니다.  
+
+하지만 차이점은 바로 ModelAndView객체를 통해서 ErrorCode에 들어있는 상태코드 값에 맞는 예외페이지를 찾고, 예외 발생에 대한 메시지를 modelAndView에 담아서 최종적으로 반환하게 됩니다.  
+
+<p align ="center"><img src="https://github.com/user-attachments/assets/4759bc7e-0001-4334-8832-a65fc8e6d6f7" width = 100%></p>
+
+그리고 위와 같이 상태코드에 맞게 보여줄 에러페이지를 공통으로 만들어두기만 하면, 상태코드에 맞게 각각의 HTML페이지가 렌더링 되어 사용자에게 보여지게 됩니다.  
+
+</br>
+
+---
+
+### ***예외 페이지 테스트***
+
+```java
+    @GetMapping("/test")
+    public String test(@RequestParam("errorType") String errorType) {
+
+        if(errorType.equals("api")) {
+            throw new BaseException(ErrorCode.MEMBER_EXISTS);
+        }else if(errorType.equals("page")) {
+            throw new ErrorPageException(ErrorCode.ORDER_UNAUTHORIZED);
+        }
+
+        return "member/loginForm";
+    }
+```
+
+위에서는 api값일 때에만 BaseException을 발생시켰지만, 이번에는 page값일 때에 ErrorPageException을 발생시키도록 로직을 추가하였습니다.  
+
+ErrorPageException에 ErrorCode.ORDER_UNAUTHORIZED는 Http Status값이 403입니다.  
+
+그리고 403.html은 다음과 같이 작성되어 있습니다.  
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>TakeEat</title>
+    <link href="/images/fav.png" rel="shortcut icon" type="image/x-icon">
+</head>
+<body>
+    <h1>403 - Forbidden</h1>
+    <p th:text="${message}"></p>
+</body>
+</html>
+```
+해당 예외가 발생된다면 위의 403.html이 정상적으로 사용자에게 렌더링이 되어 보여지게 될 것입니다.  
+
+#### 결과
+
+http://localhost:8090/member/test?errorType=page 경로로 
+errorType값을 page로 전달하도록 하였습니다.  
+
+이후 응답이 되어 보여지는 화면은 아래와 같습니다.  
+
+<p align ="center"><img src="https://github.com/user-attachments/assets/9857cca0-f8d2-429a-8ae6-5aaa495df2c9" width = 100%></p>
+
+정상적으로 403.html이 사용자에게 전달된 것을 확인할 수 있었습니다.  
+
+## ***정리***
+
+하면서도 위 방식이 정말 맞는 것인지, 아니면 더 좋은 방식이 있는 것인지는 많이 찾아봤지만 명쾌한 답이 없어서 저가 생각한 방식으로 해보자! 하고 구현하였습니다.  
+
+위처럼 API에 대한 요청을 처리하는 로직에서 발생시킬 예외는 BaseException으로  
+페이지 요청에 대해 처리하는 로직에서는 ErrorPageException을 발생시키도록 하여 각각 다르게 예외를 처리하여 보여지도록 해놓았습니다.  
+
+최종적으로 팀원들에게도 공유를 하여 위 방식으로 진행하기로 결정을 내렸습니다.  
+이를 통해 좀 더 유연하게 개발자가 용도에 맞게 예외를 보여지도록 가져갈 수 있었습니다.  
+
+하지만, 예외를 공통으로 처리하는 클래스가 2개로 나뉘어져 있으며, 좀 더 프로젝트가 복잡해진다면 개발자들간에도 혼란을 줄 수 있다고 생각이 듭니다.
