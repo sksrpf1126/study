@@ -313,20 +313,20 @@ this.sendEmail => asyncSerivce.sendEmaill로 변경하여 직적접으로 호출
 이전에 소요되었던 4.84s에서 비동기를 정상적으로 적용 후에 605ms로
 약 7.94배의 속도차이가 나는 것을 확인했습니다.  
 
-### 동기, 비동기 방식의 이메일 인증 화면
+### 동기, 비동기 방식의 이메일 인증 화면 비교
 
 <table>
 	<tbody>
 		<tr>
-			<th>동기 방식</th>
-			<th>비동기 방식</th>
+			<th></th>
 		</tr>
 		<tr>
-			<td><img width="100%" src="https://github.com/user-attachments/assets/37f3a76a-8db9-4930-82eb-cfc8bc5a74a7" alt="랜딩 페이지"/></td>
-			<td><img width="73%" src="https://github.com/user-attachments/assets/ba464601-5c3e-42c3-a706-001587eb8d1f" alt="다크모드 기능"/></td>
+			<td><img width="100%" src="https://github.com/user-attachments/assets/3a17e01a-4cf4-471f-a6ea-81cf82e669ef" alt="랜딩 페이지"/></td>
 		</tr>		
     </tbody>
 
 </table>
 
-실제 프로젝트의 회원가입창에서 이메일 인증을 요청했을 때의 화면이며, 눈에 띌 정도로 속도차이가 나는 것을 확인할 수 있다.
+왼쪽은 비동기가 적용된 이메일 인증 발송 화면이고, 오른쪽은 비동기가 적용되지 않은 이메일 인증 발송 화면입니다.  
+
+비동기가 적용된 이메일 인증의 경우 0.61초가 소요되었고, 적용되지 않은 경우에는 3.85초가 소요되었습니다.  
