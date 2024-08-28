@@ -82,8 +82,6 @@
 - [Spring Security @ExceptionHandler 적용](https://github.com/sksrpf1126/study/blob/main/%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8/Side%20Effect%20%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8%20%ED%95%84%ED%84%B0%20%EC%98%88%EC%99%B8%20%EC%B2%98%EB%A6%AC.md)
 - [인덱스 적용](https://github.com/sksrpf1126/study/blob/main/%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8/side-effect%20INDEX%20%EC%A0%81%EC%9A%A9.md)
 
----
-
 ## ***Take Eat 프로젝트***
 - [@Asnyc를 통한 이메일 인증](https://github.com/sksrpf1126/study/blob/main/%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8/%40Async%20%EB%8F%99%EC%9E%91%EC%9B%90%EB%A6%AC.md)
 - [SSR방식에서의 공통 예외처리](https://github.com/sksrpf1126/study/blob/main/%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8/SSR%EB%B0%A9%EC%8B%9D%EC%97%90%EC%84%9C%EC%9D%98%20%EA%B3%B5%ED%86%B5%20%EC%98%88%EC%99%B8%EC%B2%98%EB%A6%AC.md)
