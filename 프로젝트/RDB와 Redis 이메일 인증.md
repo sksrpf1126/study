@@ -64,7 +64,7 @@ public class EmailAuth {
 
 }
 ```
-이메일 인증에 사용되는 엔티티이며, PK값으로 사용되는 emailAuthId, 인증요청을 보낸 email 그리고 해당 이메일로 보내게 되는 인증코드(authCode) 필드가 들어가게 됩니다.  
+이메일 인증에 사용되는 엔티티이며, PK값으로 사용되는 emailAuthId, 인증 요청을 보낸 email 그리고 해당 이메일로 보내게 되는 인증코드(authCode) 필드가 들어가게 됩니다.  
 
 expireCheck 메서드는 사용자가 입력한 인증코드가 만료가 되었는지 판별하는 메서드로 EXPIRE_TIME에 할당된 5라는 값을 통해서 5분으로 만료시간을 정했습니다.  
 
