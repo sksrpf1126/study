@@ -6,6 +6,18 @@
 
 ---
 
+## 부딪힌 문제
+
+TakeEat 프로젝트를 진행 중 고객이 가게의 메뉴를 주문했을 시에 해당 가게로 주문 접수 알림이 가고, 반대로 가게가 고객의 주문에 대하여 취소, 수락, 완료 등의 상태에 따라 고객에게 알림이 가도록 구현을 해야했습니다.  
+
+이러한 알림을 구현하기 위해 Websocket을 활용하기로 하였습니다. 그런데 서버에서 해당 알림에 대하여 처리를 할 때 검증해야 되는 부분이 있었습니다. 바로 해당 알림을 보내는 송신자가 우리 사이트를 이용하는 인증된 사용자인지 검증을 하는 부분이었습니다.  
+
+일반적인 HTTP요청에 대해서는 잘 처리하고 있었지만, 웹소켓 기반에서는 동일한 방식으로는 안된다는 문제를 확인하였고 이를 해결하는 과정을 정리하기로 하였습니다.  
+
+</br>
+
+---
+
 ## 웹소켓이란?
 
 일반적으로 클라이언트와 서버는 HTTP 기반으로 Request - Response 방식으로 통신을 주고 받습니다. 즉, 요청이 있어야 응답이 발생하고 또한 상태를 저장하지 않는 Stateless한 방식이기도 합니다.  
@@ -158,10 +170,6 @@ ThreadLocal은 하나의 쓰레드에서 자유롭게 쓸 수 있는 공간이�
 
 양방향 통신중에는 세션에 대한 정보가 없기에 SecurityContextHolder에 담겨지는 정보도 없는것입니다.  
 
-```
-HTTP Session과 Websocket Session의 차이에 의해 SecurityContextHolder에 인증 객체를 담는 행위를 하는 AuthenticationProvider가 Websocket에는 관여하지 않는것 같습니다.
-```
-
 </br>
 
 ---
@@ -173,9 +181,146 @@ HTTP Session과 Websocket Session의 차이에 의해 SecurityContextHolder에 �
 
 쉽게 말해 웹소켓에 대해 매 요청마다 JWT토큰 담아서 이를 매번 서버에서 가공한다고 보면 됩니다.  
 
-하지만 저희 프로젝트는 인증-인가에 대해 세션방식으로 처리하고 있습니다.  
+하지만 저희 프로젝트는 인증-인가에 대해 세션 방식으로 처리하고 있습니다.  
 
+그래서 세션 방식의 글을 찾던 도중에 아래의 블로그 글과 스프링 공식문서에서 해답을 찾았습니다.  
 
+[세션 방식 참고 블로그](https://velog.io/@eora21/Spring-Websocket-Websocket-Security-%EB%A7%9B%EA%B9%94%EB%82%98%EA%B2%8C-%EC%82%AC%EC%9A%A9%ED%95%B4%EB%B3%B4%EA%B8%B0)  
+[스프링 공식문서](https://docs.spring.io/spring-framework/reference/web/websocket/stomp/authentication.html)  
+[스프링 공식문서 - 매개변수 정보](https://docs.spring.io/spring-framework/reference/web/websocket/stomp/handle-annotations.html)  
 
+쉽게 내용을 정리하면 처음에 Websocket 연결을 맺을 때에는 HTTP 통신이 먼저 이루어집니다. 이후 연결이 이루어지면 그 뒤에 Websocket을 기반으로 양방향 통신이 이루어지는 것이죠.  
 
+그래서 Spring은 Websocket 연결을 맺을 때 HTTP 통신이 이루어지는 이 부분에서 HTTP Session을 웹소켓의 세션에도 paste 즉, 복사를 한다고 합니다.  
 
+이 때에 기존 세션 내의 인증 정보 또한 같이 넘어가기 때문에 웹소켓 이전에 로그인된 사용자의 정보도 가져올 수 있다고 합니다.  
+
+### HTTP 통신과 결국 다를게 없지 않나?
+
+그런데 여기서 의문이 생깁니다. 그러면 결국 HTTP 통신과 다를게 없지 않나? 양방향 통신중에는 Websocket Session에 HTTP Session에 담겨 있는 인증 정보가 들어 있기 때문입니다.  
+
+그러면 SecurityContextHolder로부터 인증 객체를 가져오는 것은 왜 안되는 거지? 
+
+그래서 찾아본 결과
+```
+HTTP Session과 Websocket Session의 차이에 의해 SecurityContextHolder에 인증 객체를 담는 행위를 하는 AuthenticationProvider가 Websocket에는 관여하지 않는다.
+```
+를 찾을 수 있었습니다.  
+
+<p align ="center"><img src="https://github.com/user-attachments/assets/336cca75-db96-4bbd-8bda-3fda5f18ca70" width = 80%></p>
+
+위와 같이 Websocket의 경우에는 WebSocketHandler를 구현하는 추상 클래스인 AbstractWebSocketHandler를 보면 WebsocketSession을 사용하여 핸들링하는 것을 확인할 수 있습니다.  
+
+그렇다면 SecurityContextHolder에 담기는 SecurityContext는 어디서 가져오는지를 찾아보기로 했습니다.  
+
+<p align ="center"><img src="https://github.com/user-attachments/assets/eb6c93c9-f4eb-417c-861c-b3543a63704e" width = 80%></p>
+
+SecurityContextPersistenceFilter가 바로 그 역할을 담당하는 클래스이며, doFilter 메서드를 보면 HttpServletRequest 타입의 객체로부터 HttpSesson을 얻어옵니다.  
+
+<p align ="center"><img src="https://github.com/user-attachments/assets/79cf5342-9634-4670-8d24-987fb8dcc27d" width = 80%></p>
+
+그리고 더 아래의 로직을 보면 SecurityContext 타입의 객체를 `this.repo.saveContext(...)`라는 saveContext 메서드를 호출하는 것을 볼 수 있습니다.  
+
+해당 메서드의 내부 로직은 다음과 같습니다.  
+
+<p align ="center"><img src="https://github.com/user-attachments/assets/88276aa9-f240-4563-a4cd-a8c1355465b0" width = 80%></p>
+
+saveContext의 메서드는 SecurityContext타입의 인자와 HttpServletRequest 타입의 인자 그리고 HttpServletResponse 타입의 인자를 받아서 로직을 수행합니다.  
+
+내부 로직에서 `this.saveContewxtHttpSession(context, request)` 메서드를 호출하며 해당 메서드는 바로 아래에 private으로 선언되어 있습니다.  
+
+그리고 해당 메서드는 결국 `request.getSession(...)` 메서드를 통해 HttpSession 타입의 객체를 얻어와서 사용합니다.  
+
+정리하면 Spring Security에서 인증 객체를 만들기 위해서 HttpSession을 사용하는 것을 확인할 수 있습니다.  
+
+즉, 정리하면 Websocket Session을 사용하는 Websocket 통신의 경우에는 SecurityContextHolder로 부터 인증 정보를 얻어오는 행위는 불가능하다는 것을 알 수 있습니다.  
+
+저가 만든 @LoginMember 또한 당연히 동작이 되지 않습니다.  
+
+### 해결방법
+
+해결방법이라고는 사실 크게 없습니다. 왜냐하면 Websocket 연결을 맺을 때 복사한 HTTP Session 정보를 가지고 인증 객체를 만들면 되고, 이를 이미 스프링은 해놓았습니다.  
+
+공식문서에서 @MessageMapping에 인자로 사용할 수 있는 목록이 있는데 그 중에 `java.security.Principal` 타입을 사용할 수 있다고 합니다.  
+
+<p align ="center"><img src="https://github.com/user-attachments/assets/adcb8468-29e8-44d9-8694-30ceb36e8e10" width = 80%></p>
+
+그리고 Principal은 인터페이스이며 이를 상속하는 것이 바로 Authentication 타입입니다. 바로 SecurityContextHolder에 저장되는 타입인 그 Authentication의 부모의 입장이 되는 것이죠.  
+
+우리는 이 Principal을 가지고 웹소켓 통신에서 인증 정보를 활용하면 될 뿐입니다.  
+
+<p align ="center"><img src="https://github.com/user-attachments/assets/e5d582d8-0a67-46b5-82ad-7b4ef7ec5ab8" width = 80%></p>
+
+위와 같이 웹소켓 요청을 처리하는 메서드에 Principal 타입의 인자만 추가하여 호출하고 디버깅을 해보면 아래와 같이 principal 객체 안에 member의 엔티티 객체가 존재하게 되고, 이 member 객체에 들어있는 정보가 바로 웹소켓 요청을 보낸 사용자의 인증 정보입니다.  
+
+그런데 여기서 끝이 아닙니다. Principal 클래스에서는 getName 메서드밖에 사용이 불가합니다. 즉, Principal 안에 담겨있는 member 객체의 정보를 활용할 방법이 없습니다.  
+
+### member의 정보를 활용하는 방법
+
+기존에 HTTP 요청의 경우에 Authentication 타입을 활용하거나 아니면 안에 들어있는 사용자 정보만 꺼내서 사용할 수 있도록 어노테이션을 만들기도 합니다. 저희의 프로젝트 경우 @LoginMember 라는 어노테이션이 이에 해당됩니다.  
+
+Websocket에서는 직접 형변환을 해서 사용하면 될 뿐입니다. Principal을 상속받는 것이 Authentication 이기 때문에 가능합니다.  
+
+<p align ="center"><img src="https://github.com/user-attachments/assets/2bae5ad1-2302-46f7-9547-71757224b962" width = 80%></p>
+
+위와 같이 Authentication 타입으로 메서드 인자를 받도록 합니다.  
+
+디버깅을 보시면 authentication에 여러 값이 들어 있는 것을 확인할 수 있으며 다형성에 의해 실제 객체의 형태는 UsernamePasswordAuthenticationToken 타입입니다. 다음으로 principal 부분입니다. 해당 객체의 형태는 PrincipalDetails라는 타입이며 안에 member의 객체를 가지고 있습니다.  
+
+authentication.getPrincipal()를 호출하면 PrincipalDetails 형태의 객체가 나오게 됩니다. 여기서 PrincipalDetails는 저가 구현한 클래스입니다.  
+
+<p align ="center"><img src="https://github.com/user-attachments/assets/bea01c95-fa8d-49fd-80d9-4bcc8b7735dc" width = 80%></p>
+
+해당 클래스에서 Member 객체를 가지고 있습니다. getMember 메서드를 통해 해당 객체를 얻어올 수 있습니다.  
+
+그래서 `Member loginMember = ((PrincipalDetails) authentication.getPrincipal()).getMember();` 이런식으로 형변환을 해서 getMember()를 호출함으로써, 사용자의 인증 정보를 Member 타입의 엔티티 객체로 가져와 사용할 수 있습니다.  
+
+### 형변환을 자동으로 하자!
+
+위로도 충분히 사용자의 정보를 가져다 사용할 수 있지만, 문제는 형변환 과정을 거쳐야 합니다. 컨트롤러의 메서드의 인자를 Authentication 타입이 아니라 처음부터 PrincipalDetails 객체로 받을 수 있으면 좋지 않을까?
+
+스프링은 컨트롤러의 메서드의 인자에 맞게 변환을 해주어 할당시킵니다. 이를 가능케 하는 것이 수많은 Argument Resolver 가 동작되기 때문입니다.  
+
+그러면 해당 프로젝트의 사용자 인증 정보가 필요한 웹소켓 컨트롤러 메서드에서도 PrincipalDetails로 형변환하는 부분을 자동으로 하게끔 Argument Resolver를 커스텀해서 만들어서 등록만 해주면 됩니다.  
+
+그러면 PrincipalDetails라는 타입의 인자를 필요로 하는 컨트롤러 메서드가 호출 되기 전에 해당 Argument Resolver가 우선 동작하게 되어 적절하게 형변환을 해주게 됩니다.  
+
+#### Custom Argument Resolver
+
+```java
+public class PrincipalDetailWebsocketArgumentResolver implements HandlerMethodArgumentResolver {
+
+    @Override
+    public boolean supportsParameter(MethodParameter parameter) {
+        return PrincipalDetails.class.isAssignableFrom(parameter.getParameterType());
+    }
+
+    @Override
+    public Object resolveArgument(MethodParameter parameter, Message<?> message) throws Exception {
+        Principal principal = SimpMessageHeaderAccessor.getUser(message.getHeaders());
+
+        if (principal instanceof AbstractAuthenticationToken abstractAuthenticationToken) {
+            return abstractAuthenticationToken.getPrincipal();
+        }
+
+        throw new AuthException(ErrorCode.FAIL_CONVERT);
+    }
+}
+```
+SimpMessageHeaderAccessor.getUser의 메서드 부분이 바로 Principal 타입의 객체를 가져올 수 있도록 해주는 메서드입니다.  
+
+해당 메서드를 통해 Principal 타입의 객체를 가져오고 이후 instanceof 메서드를 통해 AbstractAuthenticationToken 타입으로 형변환이 가능한지 판단을 합니다.  
+
+정상적으로 형변환이 가능한 경우에는 abstractAuthenticationToken의 getPrincipal 메서드를 호출하여 반환합니다.  
+
+당연히 getPrincipal 메서드는 PrincipalDetails 타입의 객체를 반환하게 됩니다.  
+
+```
+AbstractAuthenticationToken의 자식으로 UsernamePasswordAuthenticationToken 과 OAuth2AuthenticationToken 등이 존재합니다.  
+
+FormLogin인 경우에는 UsernamePasswordAuthenticationToken을 사용하고 OAuth2 로그인 즉, 소셜 로그인인 경우에는 OAuth2AuthenticationToken을 사용하게 됩니다.  
+
+결국 AbstractAuthenticationToken의 자식들로 포함되기 때문에 다른 로그인인 경우에도 문제없이 반환할 수 있도록 AbstractAuthenticationToken으로 검증을 합니다.
+```
+
+### Argument Resolver 동작 테스트
