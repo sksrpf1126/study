@@ -170,6 +170,10 @@ ThreadLocal은 하나의 쓰레드에서 자유롭게 쓸 수 있는 공간이�
 
 양방향 통신중에는 세션에 대한 정보가 없기에 SecurityContextHolder에 담겨지는 정보도 없는것입니다.  
 
+```
+이 부분에 대해서는 밑에서 좀 더 깊이 있게 정리하였습니다.
+```
+
 </br>
 
 ---
@@ -191,13 +195,14 @@ ThreadLocal은 하나의 쓰레드에서 자유롭게 쓸 수 있는 공간이�
 
 쉽게 내용을 정리하면 처음에 Websocket 연결을 맺을 때에는 HTTP 통신이 먼저 이루어집니다. 이후 연결이 이루어지면 그 뒤에 Websocket을 기반으로 양방향 통신이 이루어지는 것이죠.  
 
-그래서 Spring은 Websocket 연결을 맺을 때 HTTP 통신이 이루어지는 이 부분에서 HTTP Session을 웹소켓의 세션에도 paste 즉, 복사를 한다고 합니다.  
+그래서 Spring은 Websocket 연결을 맺을 때 HTTP 통신이 이루어지는 이 부분에서 HTTP Session의 정보를 웹소켓의 세션에도 paste 즉, 복사를 한다고 합니다.  
 
 이 때에 기존 세션 내의 인증 정보 또한 같이 넘어가기 때문에 웹소켓 이전에 로그인된 사용자의 정보도 가져올 수 있다고 합니다.  
 
 ### HTTP 통신과 결국 다를게 없지 않나?
 
-그런데 여기서 의문이 생깁니다. 그러면 결국 HTTP 통신과 다를게 없지 않나? 양방향 통신중에는 Websocket Session에 HTTP Session에 담겨 있는 인증 정보가 들어 있기 때문입니다.  
+그런데 여기서 의문이 생깁니다. 그러면 결국 HTTP 통신과 다를게 없지 않나? 양방향 통신중에는 Websocket Session에 HTTP Session에 담겨 있는 인증 정보가 들어 있기 때문입니다. 이를 가지고 활용하면 되는 것이 아닌가 생각이 듭니다.  
+
 
 그러면 SecurityContextHolder로부터 인증 객체를 가져오는 것은 왜 안되는 거지? 
 
@@ -277,7 +282,7 @@ authentication.getPrincipal()를 호출하면 PrincipalDetails 형태의 객체�
 
 ### 형변환을 자동으로 하자!
 
-위로도 충분히 사용자의 정보를 가져다 사용할 수 있지만, 문제는 형변환 과정을 거쳐야 합니다. 컨트롤러의 메서드의 인자를 Authentication 타입이 아니라 처음부터 PrincipalDetails 객체로 받을 수 있으면 좋지 않을까?
+위로도 충분히 사용자의 정보를 가져다 사용할 수 있지만, 문제는 형변환 과정을 거쳐야 합니다. 컨트롤러의 메서드의 인자를 Authentication 타입이 아니라 처음부터 PrincipalDetails 객체로 받을 수 있으면 좋지 않을까? 생각이 듭니다.
 
 스프링은 컨트롤러의 메서드의 인자에 맞게 변환을 해주어 할당시킵니다. 이를 가능케 하는 것이 수많은 Argument Resolver 가 동작되기 때문입니다.  
 
@@ -320,7 +325,18 @@ AbstractAuthenticationToken의 자식으로 UsernamePasswordAuthenticationToken 
 
 FormLogin인 경우에는 UsernamePasswordAuthenticationToken을 사용하고 OAuth2 로그인 즉, 소셜 로그인인 경우에는 OAuth2AuthenticationToken을 사용하게 됩니다.  
 
-결국 AbstractAuthenticationToken의 자식들로 포함되기 때문에 다른 로그인인 경우에도 문제없이 반환할 수 있도록 AbstractAuthenticationToken으로 검증을 합니다.
+결국 AbstractAuthenticationToken의 자식들로 포함되기 때문에 로그인 방식에 구분없이 정상적으로 반환할 수 있도록 AbstractAuthenticationToken으로 검증을 합니다.
 ```
 
 ### Argument Resolver 동작 테스트
+
+그러면 이제 정상적으로 실행이 되는지 확인해보겠습니다.  
+
+<p align ="center"><img src="https://github.com/user-attachments/assets/cc33d03e-1a8e-434c-9f40-7be11665da97" width = 80%></p>
+
+Authentication 타입의 인자를 PrincipalDetails 타입의 인자로 변경하고 디버깅했을 때의 결과입니다.  
+
+정상적으로 principalDetails의 member객체에 사용자의 정보가 담긴 것을 확인할 수 있습니다.  
+
+이제 형변환은 하지 않고 getMember()를 통해서 바로 Member타입의 객체를 꺼내서 사용할 수 있습니다.  
+
