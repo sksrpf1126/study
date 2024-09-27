@@ -1,6 +1,6 @@
 # ***@Async 동작원리***
 
-해당 내용은 [테이크 잇(Take Eat)](https://github.com/pickpong/takeeat) 프로젝트를 진행하며, 정리한 내용입니다.
+해당 내용은 [테이크 잇(TakeEat)](https://github.com/pickpong/takeeat) 프로젝트를 진행하며, 정리한 내용입니다.
 
 해당 글에서는 이메일 인증 로직을 구현 중에 @Asnyc가 적용되지 않아 @Asnyc의 동작방식과 해결한 과정을 ***간략히*** 정리하였습니다.  
 
