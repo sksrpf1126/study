@@ -313,6 +313,10 @@ this.sendEmail => asyncSerivce.sendEmaill로 변경하여 직적접으로 호출
 이전에 소요되었던 4.84s에서 비동기를 정상적으로 적용 후에 605ms로
 약 7.94배의 속도차이가 나는 것을 확인했습니다.  
 
+### 전체적인 흐름
+
+<p align ="center"><img src="https://github.com/user-attachments/assets/2a7ab9ee-e872-45fd-83cf-d48d67d094ab" width = 50%></p>  
+
 ### 동기, 비동기 방식의 이메일 인증 화면 비교
 
 <table>
