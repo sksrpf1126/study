@@ -544,6 +544,24 @@ RDB와 동일하게 2,000건에 대하여 성능 테스트를 했을 때 평균 
 
 </br>
 
+### Redis 도입 전과 후 흐름
+
+<table>
+	<tbody>
+		<tr>
+			<th>도입 전</th>
+			<th>도입 후</th>
+		</tr>
+		<tr>
+			<td><img width="400px" src="https://github.com/user-attachments/assets/3c8ce4af-adb1-430b-a332-b9c00d02705f" alt="Redis 도입 전"/></td>
+			<td><img width="550px" src="https://github.com/user-attachments/assets/fe0ac5da-ce85-4214-88a0-81d8af2742ea" alt="Redis 도입 후"/></td>
+		</tr>
+    </tbody>
+</table>
+
+
+</br>
+
 ## 결론
 
 
