@@ -86,5 +86,11 @@
 
 ## ***Take Eat 프로젝트***
 - [@Asnyc를 통한 이메일 인증](https://github.com/sksrpf1126/study/blob/main/%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8/%40Async%20%EB%8F%99%EC%9E%91%EC%9B%90%EB%A6%AC.md)
+- [RDB와 Redis 이메일 인증](https://github.com/sksrpf1126/study/blob/main/%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8/RDB%EC%99%80%20Redis%20%EC%9D%B4%EB%A9%94%EC%9D%BC%20%EC%9D%B8%EC%A6%9D.md)
 - [SSR방식에서의 공통 예외처리](https://github.com/sksrpf1126/study/blob/main/%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8/SSR%EB%B0%A9%EC%8B%9D%EC%97%90%EC%84%9C%EC%9D%98%20%EA%B3%B5%ED%86%B5%20%EC%98%88%EC%99%B8%EC%B2%98%EB%A6%AC.md)
-- [RDB와 Redis 이메일 인증](https://github.com/sksrpf1126/study/blob/main/%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8/RDB%EC%99%80%20Redis%20%EC%9D%B4%EB%A9%94%EC%9D%BC%20%EC%9D%B8%EC%A6%9D.md)  
+- [Websocket에서 인증 객체 관리](https://github.com/sksrpf1126/study/blob/main/%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8/Websocket%EC%97%90%EC%84%9C%20%EC%9D%B8%EC%A6%9D%20%EA%B0%9D%EC%B2%B4%20%EC%B2%98%EB%A6%AC.md)  
+- [중복 로그인 방지](https://github.com/sksrpf1126/study/blob/main/%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8/%EC%A4%91%EB%B3%B5%20%EB%A1%9C%EA%B7%B8%EC%9D%B8%20%EB%B0%A9%EC%A7%80.md)
+
+</br>
+
+## ***기술면접 정리***
