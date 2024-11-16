@@ -94,3 +94,5 @@
 </br>
 
 ## ***기술면접 정리***
+
+[기술면접 공부 및 질문 리스트](https://github.com/sksrpf1126/study/blob/main/tech-interview/%EA%B8%B0%EC%88%A0%EB%A9%B4%EC%A0%91%20%EC%A7%88%EB%AC%B8%20%EB%98%90%EB%8A%94%20%EA%B3%B5%EB%B6%80%20%EB%AA%A9%EB%A1%9D.md)  
