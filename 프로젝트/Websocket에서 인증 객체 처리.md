@@ -242,7 +242,7 @@ saveContext의 메서드는 SecurityContext타입의 인자와 HttpServletReques
 
 정리하면 Spring Security에서 인증 객체를 만들기 위해서 HttpSession을 사용하는 것을 확인할 수 있습니다.  
 
-즉, 정리하면 Websocket Session을 사용하는 Websocket 통신의 경우에는 SecurityContextHolder로 부터 인증 정보를 얻어오는 행위는 불가능하다는 것을 알 수 있습니다.  
+즉, Websocket Session을 사용하는 Websocket 통신의 경우에는 SecurityContextHolder로 부터 인증 정보를 얻어오는 행위는 불가능하다는 것을 알 수 있습니다.  
 
 저가 만든 @LoginMember 또한 당연히 동작이 되지 않습니다.  
 
